@@ -1,499 +1,257 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Namma Kudla - Destinations</title>
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: "Poppins", sans-serif;
-      }
-      body {
-        background: #f5f7fa;
-        color: #222;
-        transition: background 0.4s, color 0.4s;
-        overflow-x: hidden;
-      }
-      header {
-        background: linear-gradient(90deg, #0077b6, #00b4d8);
-        color: #fff;
-        text-align: center;
-        padding: 1rem 0;
-        position: sticky;
-        top: 0;
-        z-index: 100;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-      }
-      nav a {
-        color: #fff;
-        margin: 0 10px;
-        text-decoration: none;
-        font-weight: 500;
-        transition: 0.3s;
-      }
-      nav a:hover {
-        color: #caf0f8;
-      }
-      #searchPanel {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 10px;
-        background: #e6f4f1;
-        padding: 12px 0;
-        box-shadow: inset 0 -1px 3px rgba(0, 0, 0, 0.1);
-      }
-      #search {
-        padding: 8px 12px;
-        border-radius: 6px;
-        border: 1px solid #ccc;
-        width: 240px;
-        transition: 0.3s;
-      }
-      #search:focus {
-        outline: none;
-        border-color: #00b4d8;
-        box-shadow: 0 0 6px #00b4d8;
-      }
-      #themeToggle {
-        background: #0077b6;
-        color: #fff;
-        border: none;
-        padding: 8px 12px;
-        border-radius: 6px;
-        cursor: pointer;
-      }
-      main {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-        gap: 25px;
-        padding: 30px;
-        max-width: 1100px;
-        margin: auto;
-      }
-      .card {
-        background: #fff;
-        border-radius: 14px;
-        overflow: hidden;
-        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
-        transition: 0.4s ease;
-        cursor: pointer;
-        transform: translateY(40px);
-        opacity: 0;
-      }
-      .card.visible {
-        transform: translateY(0);
-        opacity: 1;
-      }
-      .card:hover {
-        transform: translateY(-5px) scale(1.02);
-      }
-      .card img {
-        width: 100%;
-        height: 220px;
-        object-fit: cover;
-        object-position: center;
-        transition: transform 0.3s;
-      }
-      .card:hover img {
-        transform: scale(1.05);
-      }
-      .card-content {
-        padding: 15px;
-        text-align: center;
-      }
-      .card-content h3 {
-        margin-bottom: 8px;
-        color: #0077b6;
-        font-size: 1.1rem;
-      }
-      .modal {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.6);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        opacity: 0;
-        pointer-events: none;
-        transition: 0.3s;
-      }
-      .modal.active {
-        opacity: 1;
-        pointer-events: auto;
-      }
-      .modal-content {
-        background: #fff;
-        padding: 20px;
-        border-radius: 12px;
-        max-width: 500px;
-        width: 90%;
-        text-align: center;
-        animation: pop 0.3s ease;
-        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
-      }
-      @keyframes pop {
-        from {
-          transform: scale(0.8);
-        }
-        to {
-          transform: scale(1);
-        }
-      }
-      .close {
-        background: #0077b6;
-        color: #fff;
-        border: none;
-        padding: 8px 14px;
-        border-radius: 6px;
-        cursor: pointer;
-        margin-top: 10px;
-      }
-      body.dark {
-        background: #121212;
-        color: #eee;
-      }
-      body.dark header {
-        background: linear-gradient(90deg, #003049, #0077b6);
-      }
-      body.dark #searchPanel {
-        background: #1e1e1e;
-      }
-      body.dark .card {
-        background: #1e1e1e;
-        box-shadow: 0 2px 8px rgba(255, 255, 255, 0.08);
-      }
-      body.dark .modal-content {
-        background: #1e1e1e;
-        color: #fff;
-      }
-    </style>
-  </head>
-  <body>
-    <header>
-      <h1>Namma Kudla - Top Destinations</h1>
-      <nav>
-        <a href="index.html">Home</a>
-        <a href="blog.html">Blog</a>
-        <a href="destinations.html">Destinations</a>
-        <a href="guide.html">Guides</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
-      </nav>
-    </header>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Namma Kudla - Destinations</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+    body {
+      background: #f5f7fa;
+      color: #222;
+      transition: background 0.4s, color 0.4s;
+      overflow-x: hidden;
+    }
+    header {
+      background: linear-gradient(90deg, #0077b6, #00b4d8);
+      color: #fff;
+      text-align: center;
+      padding: 1rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    }
+    nav a {
+      color: #fff;
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+    nav a:hover {
+      color: #caf0f8;
+    }
+    #searchPanel {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      background: #e6f4f1;
+      padding: 12px 0;
+      box-shadow: inset 0 -1px 3px rgba(0, 0, 0, 0.1);
+    }
+    #search {
+      padding: 8px 12px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      width: 240px;
+      transition: 0.3s;
+    }
+    #search:focus {
+      outline: none;
+      border-color: #00b4d8;
+      box-shadow: 0 0 6px #00b4d8;
+    }
+    #themeToggle {
+      background: #0077b6;
+      color: #fff;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    main {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 25px;
+      padding: 30px;
+      max-width: 1100px;
+      margin: auto;
+    }
+    .card {
+      background: #fff;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+      transition: 0.4s ease;
+      cursor: pointer;
+      transform: translateY(40px);
+      opacity: 0;
+    }
+    .card.visible {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    .card:hover {
+      transform: translateY(-5px) scale(1.02);
+    }
+    .card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      object-position: center;
+      transition: transform 0.3s;
+    }
+    .card:hover img {
+      transform: scale(1.05);
+    }
+    .card-content {
+      padding: 15px;
+      text-align: center;
+    }
+    .card-content h3 {
+      margin-bottom: 8px;
+      color: #0077b6;
+      font-size: 1.1rem;
+    }
+    body.dark {
+      background: #121212;
+      color: #eee;
+    }
+    body.dark header {
+      background: linear-gradient(90deg, #003049, #0077b6);
+    }
+    body.dark #searchPanel {
+      background: #1e1e1e;
+    }
+    body.dark .card {
+      background: #1e1e1e;
+      box-shadow: 0 2px 8px rgba(255, 255, 255, 0.08);
+    }
+  </style>
+</head>
+<body>
 
-    <div id="searchPanel">
-      <input type="text" id="search" placeholder="Search destinations..." />
-      <button id="themeToggle">☀️</button>
+<header>
+  <h1>Namma Kudla - Top Destinations</h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="blog.html">Blog</a>
+    <a href="destinations.html">Destinations</a>
+    <a href="guide.html">Guides</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<div id="searchPanel">
+  <input type="text" id="search" placeholder="Search destinations..." />
+  <button id="themeToggle">☀️</button>
+</div>
+
+<main id="destGrid">
+
+  <div class="card" data-name="Pilikula Nisargadhama">
+    <img src="images/Screenshot 2025-11-14 222221.png" alt="Pilikula Nisargadhama" />
+    <div class="card-content">
+      <h3>Pilikula Nisargadhama</h3>
+      <p>Eco-tourism park showcasing Mangalore’s biodiversity and wildlife.</p>
     </div>
+  </div>
 
-    <main id="destGrid">
-      <div class="card" data-name="Pilikula Nisargadhama">
-        <img
-          src="images/Screenshot 2025-11-14 222221.png"
-          alt="Pilikula Nisargadhama"
-          loading="lazy"
-        />
-        <div class="card-content">
-          <h3>Pilikula Nisargadhama</h3>
-          <p>
-            Eco-tourism park showcasing Mangalore’s biodiversity, culture, and
-            wildlife experiences.
-          </p>
-        </div>
-      </div>
-      <div class="card" data-name="Panambur Beach">
-        <img
-          src="images/Screenshot 2025-11-14 222300.png "
-          alt="Panambur Beach"
-          loading="lazy"
-        />
-        <div class="card-content">
-          <h3>Panambur Beach</h3>
-          <p>
-            Famous for sunsets, beach festivals, and thrilling water sports
-            along golden shores.
-          </p>
-        </div>
-      </div>
-      <div class="card" data-name="St. Aloysius Chapel">
-        <img
-          src="images/Screenshot 2025-11-14 222148.png"
-          alt="St. Aloysius Chapel"
-          loading="lazy"
-        />
-        <div class="card-content">
-          <h3>St. Aloysius Chapel</h3>
-          <p>
-            Historic church adorned with intricate Italian frescoes and stunning
-            art.
-          </p>
-        </div>
-      </div>
-      <div class="card" data-name="Tannirbhavi Beach">
-        <img
-          src="images/Screenshot 2025-11-14 222127.png"
-          alt="Tannirbhavi Beach"
-          loading="lazy"
-        />
-        <div class="card-content">
-          <h3>Tannirbhavi Beach</h3>
-          <p>
-            Peaceful beach lined with trees, perfect for quiet evenings and sea
-            breezes.
-          </p>
-        </div>
-      </div>
-    </main>
-
-    <div class="modal" id="modal">
-      <div class="modal-content">
-        <h3 id="modalTitle"></h3>
-        <p id="modalText"></p>
-        <button class="close" id="closeModal">Close</button>
-      </div>
+  <div class="card" data-name="Panambur Beach">
+    <img src="images/Screenshot 2025-11-14 222300.png" alt="Panambur Beach" />
+    <div class="card-content">
+      <h3>Panambur Beach</h3>
+      <p>Popular beach known for festivals, water sports and sunsets.</p>
     </div>
+  </div>
 
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        const cards = document.querySelectorAll(".card");
-        const modal = document.getElementById("modal");
-        const title = document.getElementById("modalTitle");
-        const text = document.getElementById("modalText");
-        const close = document.getElementById("closeModal");
-        const search = document.getElementById("search");
-        const toggle = document.getElementById("themeToggle");
-        const destGrid = document.getElementById("destGrid");
+  <div class="card" data-name="St. Aloysius Chapel">
+    <img src="images/Screenshot 2025-11-14 222148.png" alt="St Aloysius Chapel" />
+    <div class="card-content">
+      <h3>St. Aloysius Chapel</h3>
+      <p>Church famous for beautiful Italian fresco paintings.</p>
+    </div>
+  </div>
 
-        /* ---------------- THEME TOGGLE ---------------- */
-        toggle.addEventListener("click", () => {
-          document.body.classList.toggle("dark");
-          const darkMode = document.body.classList.contains("dark");
-          toggle.textContent = darkMode ? "🌙" : "☀️";
-          localStorage.setItem("theme", darkMode ? "dark" : "light");
-          document.body.animate([{ opacity: 0.8 }, { opacity: 1 }], {
-            duration: 300,
-            easing: "ease-in",
-          });
-        });
-        if (localStorage.getItem("theme") === "dark") {
-          document.body.classList.add("dark");
-          toggle.textContent = "🌙";
-        }
+  <div class="card" data-name="Tannirbhavi Beach">
+    <img src="images/Screenshot 2025-11-14 222127.png" alt="Tannirbhavi Beach" />
+    <div class="card-content">
+      <h3>Tannirbhavi Beach</h3>
+      <p>Quiet beach with casuarina trees and scenic shoreline.</p>
+    </div>
+  </div>
 
-        /* ---------------- CARD REVEAL ANIMATION ---------------- */
-        const observer = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry, i) => {
-              if (entry.isIntersecting) {
-                setTimeout(
-                  () => entry.target.classList.add("visible"),
-                  i * 100
-                );
-              }
-            });
-          },
-          { threshold: 0.15 }
-        );
-        cards.forEach((card) => observer.observe(card));
+  <div class="card" data-name="Kateel Durga Parameshwari Temple">
+    <img src="images/Screenshot 2025-11-15 173613.png" alt="Kateel Temple" />
+    <div class="card-content">
+      <h3>Kateel Durga Parameshwari Temple</h3>
+      <p>Temple located on a serene river island dedicated to Goddess Durga.</p>
+    </div>
+  </div>
 
-        /* ---------------- LIVE SEARCH + HIGHLIGHT ---------------- */
-        search.addEventListener("input", () => {
-          const term = search.value.toLowerCase();
-          cards.forEach((card) => {
-            const name = card.dataset.name.toLowerCase();
-            const match = name.includes(term);
-            card.style.display = match ? "block" : "none";
+  <div class="card" data-name="St Marys Island Udupi">
+    <img src="images/Screenshot 2025-11-15 173717.png" alt="St Marys Island" />
+    <div class="card-content">
+      <h3>St Marys Island Udupi</h3>
+      <p>Island known for hexagonal rocks and clear coastal waters.</p>
+    </div>
+  </div>
 
-            const titleEl = card.querySelector("h3");
-            const rawName = card.dataset.name;
-            if (term && match) {
-              const regex = new RegExp(`(${term})`, "gi");
-              titleEl.innerHTML = rawName.replace(regex, "<mark>$1</mark>");
-            } else {
-              titleEl.textContent = rawName;
-            }
-          });
-        });
+</main>
 
-        /* ---------------- FAVORITES SYSTEM ---------------- */
-        const favorites = new Set(
-          JSON.parse(localStorage.getItem("favorites") || "[]")
-        );
-        function updateFavorites() {
-          cards.forEach((card) => {
-            let star = card.querySelector(".fav");
-            if (!star) {
-              star = document.createElement("span");
-              star.className = "fav";
-              star.textContent = "❤️";
-              card.appendChild(star);
-              card.style.position = "relative";
-              star.style.cssText = `
-          position:absolute;top:10px;right:14px;font-size:20px;
-          cursor:pointer;color:gold;opacity:0.4;transition:opacity .3s, transform .3s;
-        `;
-            }
-            star.style.opacity = favorites.has(card.dataset.name) ? "1" : "0.4";
-            star.onclick = (e) => {
-              e.stopPropagation();
-              favorites.has(card.dataset.name)
-                ? favorites.delete(card.dataset.name)
-                : favorites.add(card.dataset.name);
-              localStorage.setItem("favorites", JSON.stringify([...favorites]));
-              updateFavorites();
-              star.animate(
-                [
-                  { transform: "scale(1)" },
-                  { transform: "scale(1.3)" },
-                  { transform: "scale(1)" },
-                ],
-                { duration: 300, easing: "ease-in-out" }
-              );
-            };
-          });
-        }
-        updateFavorites();
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const cards = document.querySelectorAll(".card");
+    const search = document.getElementById("search");
+    const toggle = document.getElementById("themeToggle");
 
-        /* ---------------- FILTER BAR ---------------- */
-        const categories = {
-          Beaches: ["Panambur", "Tannirbhavi"],
-          Culture: ["Aloysius"],
-          Nature: ["Pilikula"],
-        };
-        const filterBar = document.createElement("div");
-        filterBar.style.cssText =
-          "display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin:25px 0;";
-        const allBtn = document.createElement("button");
-        allBtn.textContent = "All";
-        allBtn.className = "filter-btn active";
-        filterBar.appendChild(allBtn);
-        Object.keys(categories).forEach((cat) => {
-          const btn = document.createElement("button");
-          btn.textContent = cat;
-          btn.className = "filter-btn";
-          filterBar.appendChild(btn);
-        });
-        document.body.insertBefore(filterBar, destGrid);
+    toggle.addEventListener("click", () => {
+      document.body.classList.toggle("dark");
+      const dark = document.body.classList.contains("dark");
+      toggle.textContent = dark ? "🌙" : "☀️";
+      localStorage.setItem("theme", dark ? "dark" : "light");
+    });
 
-        const styleBtns = (btn) => {
-          btn.style.cssText = `
-      padding:8px 16px;border:none;border-radius:8px;
-      background:#0077b6;color:#fff;cursor:pointer;font-weight:500;
-      transition:background 0.3s, transform 0.2s;
-    `;
-          btn.onmouseover = () => (btn.style.transform = "scale(1.05)");
-          btn.onmouseout = () => (btn.style.transform = "scale(1)");
-        };
-        document.querySelectorAll(".filter-btn").forEach(styleBtns);
+    if (localStorage.getItem("theme") === "dark") {
+      document.body.classList.add("dark");
+      toggle.textContent = "🌙";
+    }
 
-        document.querySelectorAll(".filter-btn").forEach((btn) => {
-          btn.addEventListener("click", () => {
-            document
-              .querySelectorAll(".filter-btn")
-              .forEach((b) => (b.style.background = "#0077b6"));
-            btn.style.background = "#023e8a";
-            const cat = btn.textContent;
-            cards.forEach((c) => {
-              const visible =
-                cat === "All" ||
-                categories[cat]?.some((n) => c.dataset.name.includes(n));
-              c.style.display = visible ? "block" : "none";
-            });
-          });
-        });
-
-        /* ---------------- SORTING BAR ---------------- */
-        const sortBar = document.createElement("div");
-        sortBar.style.cssText =
-          "display:flex;justify-content:center;gap:10px;margin:10px 0;";
-        const sortName = document.createElement("button");
-        sortName.textContent = "Sort A–Z";
-        const sortFav = document.createElement("button");
-        sortFav.textContent = "Show Favorites";
-        [sortName, sortFav].forEach(styleBtns);
-        sortBar.append(sortName, sortFav);
-        document.body.insertBefore(sortBar, destGrid);
-
-        sortName.addEventListener("click", () => {
-          const sorted = [...cards].sort((a, b) =>
-            a.dataset.name.localeCompare(b.dataset.name)
-          );
-          sorted.forEach((c) => destGrid.appendChild(c));
-          destGrid.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 400 });
-        });
-        sortFav.addEventListener("click", () => {
-          const sorted = [...cards].sort(
-            (a, b) =>
-              favorites.has(b.dataset.name) - favorites.has(a.dataset.name)
-          );
-          sorted.forEach((c) => destGrid.appendChild(c));
-          destGrid.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 400 });
-        });
-
-        /* ---------------- MODAL + KEYBOARD CONTROL ---------------- */
-        function openModal(card) {
-          title.textContent = card.querySelector("h3").textContent;
-          text.textContent = card.querySelector("p").textContent;
-          modal.classList.add("active");
-          modal.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 300 });
-        }
-        cards.forEach((card) =>
-          card.addEventListener("click", () => openModal(card))
-        );
-        close.addEventListener("click", () => modal.classList.remove("active"));
-        window.addEventListener("click", (e) => {
-          if (e.target === modal) modal.classList.remove("active");
-        });
-        window.addEventListener("keydown", (e) => {
-          if (e.key === "Escape") modal.classList.remove("active");
-          const visibleCards = [...cards].filter(
-            (c) => c.style.display !== "none"
-          );
-          const index = visibleCards.findIndex(
-            (c) => c.querySelector("h3").textContent === title.textContent
-          );
-          if (modal.classList.contains("active")) {
-            if (e.key === "ArrowRight" && index < visibleCards.length - 1)
-              openModal(visibleCards[index + 1]);
-            if (e.key === "ArrowLeft" && index > 0)
-              openModal(visibleCards[index - 1]);
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry, i) => {
+          if (entry.isIntersecting) {
+            setTimeout(() => entry.target.classList.add("visible"), i * 100);
           }
         });
+      },
+      { threshold: 0.15 }
+    );
+    cards.forEach((card) => observer.observe(card));
 
-        /* ---------------- FUN DETAIL: RANDOM HOVER SHAKE ---------------- */
-        cards.forEach((card) => {
-          card.addEventListener("mouseenter", () => {
-            card.animate(
-              [
-                { transform: "rotate(0deg)" },
-                { transform: "rotate(1deg)" },
-                { transform: "rotate(-1deg)" },
-                { transform: "rotate(0deg)" },
-              ],
-              { duration: 300, easing: "ease-in-out" }
-            );
-          });
-        });
-
-        /* ---------------- SEARCH INPUT MINI ANIMATION ---------------- */
-        search.addEventListener("focus", () => {
-          search.animate(
-            [
-              { transform: "scale(1)" },
-              { transform: "scale(1.05)" },
-              { transform: "scale(1)" },
-            ],
-            { duration: 300, easing: "ease-in-out" }
-          );
-        });
+    search.addEventListener("input", () => {
+      const term = search.value.toLowerCase();
+      cards.forEach((card) => {
+        const name = card.dataset.name.toLowerCase();
+        card.style.display = name.includes(term) ? "block" : "none";
       });
-    </script>
-  </body>
+    });
+
+    const gmapLinks = {
+      "Pilikula Nisargadhama": "https://www.google.com/maps?q=Pilikula+Nisargadhama",
+      "Panambur Beach": "https://www.google.com/maps?q=Panambur+Beach",
+      "St. Aloysius Chapel": "https://www.google.com/maps?q=St.+Aloysius+Chapel+Mangalore",
+      "Tannirbhavi Beach": "https://www.google.com/maps?q=Tannirbhavi+Beach",
+      "Kateel Durga Parameshwari Temple": "https://www.google.com/maps?q=Kateel+Durga+Parameshwari+Temple",
+      "St Marys Island Udupi": "https://www.google.com/maps?q=St+Marys+Island+Udupi"
+    };
+
+    cards.forEach(card => {
+      card.addEventListener("click", () => {
+        const place = card.dataset.name;
+        window.location.href = gmapLinks[place];
+      });
+    });
+  });
+</script>
+
+</body>
 </html>
