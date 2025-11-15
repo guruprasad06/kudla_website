@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Namma Kudla - Guides & Travel</title>
+    <style>
+      body {
+        font-family: Arial;
+        margin: 0;
+        background: #f9fafb;
+        text-align: center;
+      }
+      header {
+        background: #0077b6;
+        color: #fff;
+        padding: 10px;
+      }
+      nav a {
+        color: #fff;
+        margin: 0 8px;
+        text-decoration: none;
+      }
+      h2 {
+        color: #0077b6;
+        margin-top: 30px;
+      }
+      header {
+  background: linear-gradient(135deg, #0077b6, #0096c7);
+  color: #fff;
+  text-align: center;
+  padding: 25px 10px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+header h1 {
+  font-size: 2rem;
+  letter-spacing: 1px;
+}
+nav {
+  margin-top: 10px;
+}
+nav a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 12px;
+  font-weight: 500;
+  transition: opacity 0.3s;
+}
+nav a:hover {
+  opacity: 0.8;
+}
+nav a.active {
+  text-decoration: underline;
+}
+
+      section {
+        margin: 30px auto;
+        width: 85%;
+      }
+      .grid {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+      }
+      .card {
+        background: #fff;
+        width: 200px;
+        padding: 10px;
+        border-radius: 10px;
+        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+        transition: 0.3s;
+      }
+      .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+      }
+      .card img {
+        width: 100%;
+        height: 130px;
+        border-radius: 8px;
+        object-fit: cover;
+      }
+      nav a:hover {
+        text-decoration: underline;
+      }
+      button {
+        background: #0077b6;
+        color: #fff;
+        border: none;
+        padding: 6px 10px;
+        margin-top: 8px;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      button:hover {
+        background: #00b4d8;
+      }
+      .travel-btn {
+        background: linear-gradient(135deg, #00b4d8, #0077b6);
+        color: white;
+        border: none;
+        padding: 6px 10px;
+        margin-top: 8px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: 0.3s;
+        font-size: 14px;
+      }
+      .travel-btn:hover {
+        background: linear-gradient(135deg, #0077b6, #00b4d8);
+        transform: scale(1.05);
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Namma Kudla</h1>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="blog.html">Blog</a>
+        <a href="destinations.html">Destinations</a>
+        <a href="guide.html">Guides</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </header>
+
+    <section>
+      <h2>Our Guides</h2>
+      <p id="para1">
+        Our guides will help you reach, learn and enjoy your trip in a good
+        manner.
+      </p>
+      <div class="grid">
+        <div class="card">
+          <img src="images/guide.jpeg" />
+          <h3>Ravi Shetty</h3>
+          <p>Coastal Cuisine Expert</p>
+          <p>&#128065;25 views</p>
+          <button>Contact</button>
+        </div>
+        <div class="card">
+          <img src="images/travel-guide.jpeg" />
+          <h3>Latha Pai</h3>
+          <p>Temple & Heritage Tours</p>
+          <p>&#128065;40 views</p>
+          <button>Contact</button>
+        </div>
+        <div class="card">
+          <img src="images/guide.jpeg" />
+          <h3>Manoj Rao</h3>
+          <p>Adventure & Trekking</p>
+          <p>&#128065;30 views</p>
+          <button>Contact</button>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Travel Options</h2>
+      <div class="grid">
+        <div class="card">
+          <img src="images/bus_img.jpeg" />
+          <h3>Bus</h3>
+          <p>Frequent city and intercity buses with KSRTC/Govt services.</p>
+          <button class="travel-btn">Contact for Bus</button>
+        </div>
+
+        <div class="card">
+          <img src="images/tain_img.jpeg" />
+          <h3>Train</h3>
+          <p>Well-connected routes via Mangalore Junction & Central.</p>
+          <button class="travel-btn">Contact for Train</button>
+        </div>
+
+        <div class="card">
+          <img src="images/auto-img.jpeg" />
+          <h3>Auto</h3>
+          <p>Affordable rides for short city distances.</p>
+          <button class="travel-btn">Contact for Auto</button>
+        </div>
+
+        <div class="card">
+          <img src="images/car_img.avif" />
+          <h3>Cab</h3>
+          <p>Book online via Ola, Uber, or local services.</p>
+          <button class="travel-btn">Contact for Cab</button>
+        </div>
+
+        <div class="card">
+          <img src="images/bike_img.jpeg" />
+          <h3>Bike</h3>
+          <p>There are a lot of uber or local service.</p>
+          <button class="travel-btn">Contact for Bike</button>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      document
+        .querySelectorAll("button:not(.travel-btn)")
+        .forEach((b) => (b.onclick = () => alert("Guide will contact you soon!")));
+
+      document.querySelectorAll(".travel-btn").forEach((btn) => {
+        btn.onclick = () => alert("Our travel assistant will contact you soon!");
+      });
+    </script>
+  </body>
+</html>
